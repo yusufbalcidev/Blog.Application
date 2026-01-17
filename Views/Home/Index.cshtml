@@ -1,0 +1,202 @@
+﻿
+
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lumina - Modern Blog</title>
+    <!-- Google Fonts: Inter and Playfair Display -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Config -->
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4ce6e6",
+              "background-light": "#f6f8f8",
+              "background-dark": "#112121",
+              "text-main": "#111717",
+              "text-muted": "#648787",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"],
+              "serif": ["Playfair Display", "serif"],
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+        }
+        /* Hide scrollbar for chrome/safari/opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main font-display antialiased flex flex-col min-h-screen">
+    <!-- Top Navigation -->
+    <div class="w-full bg-white/80 dark:bg-[#112121]/80 backdrop-blur-md sticky top-0 z-50 border-b border-[#e5e7eb] dark:border-gray-800">
+        <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+            <header class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="size-8 bg-primary rounded-lg flex items-center justify-center text-[#112121]">
+                        <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+                    </div>
+                    <h2 class="text-text-main dark:text-white text-xl font-bold tracking-tight">Lumina</h2>
+                </div>
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a class="text-text-main dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+                    <a class="text-text-muted dark:text-gray-400 text-sm font-medium hover:text-primary transition-colors" href="#">Articles</a>
+                    <a class="text-text-muted dark:text-gray-400 text-sm font-medium hover:text-primary transition-colors" href="#">About</a>
+                    <a class="text-text-muted dark:text-gray-400 text-sm font-medium hover:text-primary transition-colors" href="#">Newsletter</a>
+                </nav>
+                <!-- Actions -->
+                <div class="flex items-center gap-4">
+                    <button class="flex items-center justify-center size-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-main dark:text-white">
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                    <button class="hidden sm:flex h-10 px-5 items-center justify-center rounded-lg bg-black dark:bg-white text-white dark:text-black text-sm font-bold hover:opacity-80 transition-opacity">
+                        Subscribe
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden flex items-center justify-center size-10 text-text-main dark:text-white">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </header>
+        </div>
+    </div>
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative py-16 sm:py-24 lg:py-32 px-4 overflow-hidden">
+            <div class="max-w-4xl mx-auto text-center relative z-10">
+                <span class="inline-block px-3 py-1 mb-6 text-xs font-bold tracking-wider text-primary uppercase bg-primary/10 rounded-full">
+                    Thoughts on Design &amp; Tech
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-serif font-bold text-text-main dark:text-white leading-[1.1] mb-6">
+                    Exploring the intersection of <span class="relative whitespace-nowrap"><span class="relative z-10">creativity</span><span class="absolute bottom-1 left-0 w-full h-3 bg-primary/30 -z-10"></span></span> and logic.
+                </h1>
+                <p class="text-lg sm:text-xl text-text-muted dark:text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    A curated collection of stories about minimalist design, coding architectures, and maintaining balance in a digital world.
+                </p>
+                <!-- Hero Image -->
+                <div class="mt-12 rounded-2xl overflow-hidden shadow-2xl aspect-[21/9] w-full relative group">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
+                    <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Abstract minimalist desk setup with laptop and plants" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB9Q1_7XX5fZ4ZtgGE54qREc4nzUQwB_s_svl0RpfEE-7DNc6jxfTCrbDab97eXu6aGfauMviPhoTHaGAL88Yu4IdirSIzVo3MsePHIMnsydvwytMlrE5AuzZgnP5cY_YVPHJJNfQulaaQGsq7ES2__jlMqt4gEVKv6QujdA2bPFPk72VAlCr1kIHaN26tEGNuarapQ2FarJ992oS1qYqcH9_-LBbkxyTjwMkUy2P0H6gZhysDj1iIYH88CuRd71y2tzNsKHkWD1DI");'>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Category Filter -->
+        <section class="sticky top-[64px] sm:top-[80px] z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-[#e5e7eb] dark:border-gray-800 py-4">
+            <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex gap-3 overflow-x-auto no-scrollbar pb-1">
+                    <button class="flex h-9 shrink-0 items-center justify-center px-5 rounded-full bg-primary text-[#112121] text-sm font-bold shadow-sm transition-transform active:scale-95">
+                        All
+                    </button>
+                    <button class="flex h-9 shrink-0 items-center justify-center px-5 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-text-main dark:text-gray-300 text-sm font-medium hover:border-primary hover:text-primary transition-all active:scale-95">
+                        Design
+                    </button>
+                    <button class="flex h-9 shrink-0 items-center justify-center px-5 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-text-main dark:text-gray-300 text-sm font-medium hover:border-primary hover:text-primary transition-all active:scale-95">
+                        Technology
+                    </button>
+                    <button class="flex h-9 shrink-0 items-center justify-center px-5 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-text-main dark:text-gray-300 text-sm font-medium hover:border-primary hover:text-primary transition-all active:scale-95">
+                        Productivity
+                    </button>
+                    <button class="flex h-9 shrink-0 items-center justify-center px-5 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-text-main dark:text-gray-300 text-sm font-medium hover:border-primary hover:text-primary transition-all active:scale-95">
+                        Mindfulness
+                    </button>
+                    <button class="flex h-9 shrink-0 items-center justify-center px-5 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-text-main dark:text-gray-300 text-sm font-medium hover:border-primary hover:text-primary transition-all active:scale-95">
+                        Culture
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Article Grid -->
+        <section class="py-16 bg-white dark:bg-[#112121]">
+            <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+                    <!-- Article 1 -->
+                    <article class="group cursor-pointer flex flex-col gap-4">
+                        <div class="relative overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 aspect-[4/3]">
+                            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Abstract geometric shapes representing minimalist design" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB0BcIqzgDxmsiuZlwmzaiuD-kMl_C02Ark0BMsyH82d_f5MYNs4UxCYYsYJs52cIkOJcyQswTK4LhCGz88YQjPB1ACW_rIvmZ7p35LfuextoQL_gM_VizkswW5Johosk4JNz9b177G66ndIaicfCmKGN3Is-BgBiqLXfCZ-MyQeIQFr0xJRrP5b7v9-0_xlyajZP23I49HZ2Mw19B58JIQHiadHsmzPNqFWVn5k-eA062ii1Lv_YNgOaakv1GPUp-aOPH2dLhdJw0");'>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold uppercase tracking-wider text-primary">Design</span>
+                                <span class="text-xs text-gray-300">•</span>
+                                <span class="text-xs font-medium text-text-muted dark:text-gray-400">Oct 24</span>
+                            </div>
+                            <h3 class="text-2xl font-serif font-bold text-text-main dark:text-white group-hover:text-primary transition-colors leading-tight">
+                                The Future of Minimalist UI
+                            </h3>
+                            <p class="text-text-muted dark:text-gray-400 text-sm line-clamp-2">
+                                Exploring how stripping away the non-essential can lead to more impactful and user-friendly digital experiences.
+                            </p>
+                            <div class="pt-2 flex items-center gap-1 text-sm font-bold text-text-main dark:text-white group-hover:translate-x-1 transition-transform">
+                                Read Article <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </div>
+                        </div>
+                    
+                </div>
+                <!-- Load More Button -->
+                <div class="mt-16 flex justify-center">
+                    <button class="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-transparent border-2 border-primary text-[#112121] dark:text-white text-sm font-bold tracking-wide hover:bg-primary hover:text-[#112121] transition-all">
+                        Load More Articles
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-background-light dark:bg-[#112121] border-t border-[#e5e7eb] dark:border-gray-800 py-12">
+        <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="size-6 bg-primary rounded flex items-center justify-center text-[#112121]">
+                        <span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+                    </div>
+                    <span class="text-text-main dark:text-white font-bold text-lg">Lumina</span>
+                </div>
+                <div class="flex gap-8 text-sm font-medium text-text-muted dark:text-gray-400">
+                    <a class="hover:text-primary transition-colors" href="#">Privacy</a>
+                    <a class="hover:text-primary transition-colors" href="#">Terms</a>
+                    <a class="hover:text-primary transition-colors" href="#">Twitter</a>
+                    <a class="hover:text-primary transition-colors" href="#">Instagram</a>
+                </div>
+                <div class="text-sm text-text-muted dark:text-gray-500">
+                    © 2023 Lumina Blog. Crafted with care.
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
