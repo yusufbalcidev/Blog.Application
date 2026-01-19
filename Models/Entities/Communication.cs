@@ -1,4 +1,5 @@
 ﻿using Blog.Application.Models.Base;
+using Microsoft.AspNetCore.Identity;
 
 namespace Blog.Application.Models.Entities
 {
