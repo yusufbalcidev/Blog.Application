@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Blog.Application.Models.DataViewModels;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.Application.Controllers
 {
@@ -8,5 +10,11 @@ namespace Blog.Application.Controllers
         {
             return View();
         }
+
+        public IActionResult SignIn()
+        {
+            return View();
+        }
+        
     }
 }

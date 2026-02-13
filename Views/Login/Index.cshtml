@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+@model SignInViewModel
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>BlogPlatform - Authentication</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4ce6e6",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#112121",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2c2c",
+                        "text-main": "#111717",
+                        "text-muted": "#648787",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-main dark:text-white antialiased transition-colors duration-200">
+    <div class="relative flex min-h-screen w-full flex-row overflow-hidden">
+        <!-- Left Pane: Visual (Hidden on mobile) -->
+        <div class="hidden lg:flex lg:w-1/2 relative flex-col justify-between p-12 overflow-hidden bg-background-dark">
+            <div class="absolute inset-0 z-0">
+                <div class="w-full h-full bg-cover bg-center opacity-80" data-alt="Abstract calming pastel shapes and gradients representing creativity" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJHK8i6mwcqfBOPo_Xn4CVvEcj_5PmunTy-PTZhdwqTYhDaX3KTNFIhHVM2ZuqGh1E5dbpoD5UQNTh1QNpd5saKLGEgeB4opw9-RHb6xSR15lf_qGfQHNYezPWxdgmEhu-GirTvyWn6JxlivOxa8okx7H85rtePRtaEx5bb_3q2o9Z2ysMeEFc3bGgV4KiKV3pMNB7IYOZemdBTYLGYeLOZqXEAB0YAbV_fOzj8_V3ADt7sQDC3gbuBJRuDD1wt1aXMYq7cLYMj9c');">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-background-dark/20 to-transparent"></div>
+            </div>
+            <div class="relative z-10">
+                <!-- Optional: Logo or Branding on the image side -->
+                <div class="flex items-center gap-3 text-white">
+                    <div class="size-8 text-primary">
+                        <svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight text-white">BlogPlatform</span>
+                </div>
+            </div>
+            <div class="relative z-10 max-w-md">
+                <h2 class="text-4xl font-bold text-white mb-4 leading-tight">Capture your thoughts, share your world.</h2>
+                <p class="text-gray-300 text-lg leading-relaxed">Join a community of writers and readers who value clarity, simplicity, and great stories.</p>
+                <div class="mt-8 flex gap-3">
+                    <div class="flex -space-x-2">
+                        <img alt="User avatar" class="inline-block h-10 w-10 rounded-full ring-2 ring-background-dark object-cover" data-alt="Portrait of a smiling young woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZb1tFcDJ8LFPcdptUGT2ToNzfZjaPXHmSxa0G6lxB4v5lBn3ZG2N3Ra20Zkwo7QrmvPwZRB8cwkYtOkE1eH-5mS72PmPvRUlO5sUERxfxsZ4lSPEc1rEQkBDVpYED-ClKe2drg8xgfITnPmkAfjYuHWL2iehjaX8IDEBgX6NBzuf0z_rtfLGrCft6J45SgD8W3If9AkVyY4-kXTY9y_5tc7oPBFOHk3tu_AzJQVvim4GvFS6V8pwDaWOiNohJl4eCTikrQrgvQCs" />
+                        <img alt="User avatar" class="inline-block h-10 w-10 rounded-full ring-2 ring-background-dark object-cover" data-alt="Portrait of a young man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5-QRZd-4g_jCThgr0RyPmPqqv3Fur4C9lydCP4CzqKc2cKa4iLY2I-jG5RzDZIixX1tjVRchsX56cYB7w-3_jr9sIHrz9CGmDeK_S7xR_yPwPWxDnsxSwjO_7y8hnZABEiGt-wq8SlZ4ZZVs7O5Np8ztOyDM9oBIA4RDROR0GPoTsy-5nm7rWhooraPXzX8Gt3sglADTF5mU55ZtytVeHiwma1Wv69Vc2lJDzdvrEBTNTAD2nSlFtNMwJEXR1j1tzB-HrYMTsRE0" />
+                        <img alt="User avatar" class="inline-block h-10 w-10 rounded-full ring-2 ring-background-dark object-cover" data-alt="Portrait of a smiling man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYAhGBoASmbckkjhdVWlh7UrZS93qpWl9aGWW558GMiXAathieGCyiUXn36pa241533aEHgeC--uYRhAd3XBM-N6Dq-38ow5uYv_ejM_y2KmNEEq4L9IgNDyi8dolbwBwK8ZVLGKdz3Unymp6eQDMMeE5PxySkx4ltrZsqgUxaABrjazd90Hd8t3eaWn3WvjjNfIMdXBvSiVcJJNQsV7ctdZO_A7NtUZuXHPdXlwQo2LmUFTKRvTXRy4ZAjkujRbcCDMwP5TdT5L4" />
+                    </div>
+                    <div class="flex items-center text-white text-sm font-medium">
+                        <span>Join 10,000+ writers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Right Pane: Form -->
+        <div class="flex w-full lg:w-1/2 flex-col justify-center items-center px-6 py-12 lg:px-20 bg-background-light dark:bg-background-dark relative">
+            <!-- Mobile Header Logo (Visible only on small screens) -->
+            <div class="absolute top-6 left-6 lg:hidden flex items-center gap-2 text-text-main dark:text-white">
+                <div class="size-6 text-text-main dark:text-white">
+                    <svg class="w-full h-full" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <span class="text-lg font-bold">BlogPlatform</span>
+            </div>
+            <div class="w-full max-w-[480px] flex flex-col gap-8">
+                <!-- Heading -->
+                <div class="flex flex-col gap-2 text-center lg:text-left">
+                    <h1 class="text-text-main dark:text-white text-3xl lg:text-4xl font-bold tracking-tight">Welcome back</h1>
+                    <p class="text-text-muted dark:text-gray-400 text-sm lg:text-base font-normal">Enter your details to access your workspace.</p>
+                </div>
+                <!-- Form -->
+                <form class="flex flex-col gap-5">
+                    <!-- Email Field -->
+                    <label class="flex flex-col gap-2">
+                        <span class="text-text-main dark:text-gray-200 text-sm font-medium">
+                            <div class="row mb-3">
+                                <label for="Email" class="form-label" asp-for="Email"></label>
+                                <input value="y@gmail.com" class="form-control" asp-for="Email">
+                                <span class="text-danger" asp-validation-for="Email"></span>
+
+                        </span>
+                        <div class="relative">
+                            <input class="form-input w-full rounded-lg border border-[#dce5e5] dark:border-gray-700 bg-white dark:bg-surface-dark px-4 py-3 text-base text-text-main dark:text-white placeholder:text-text-muted focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all h-12" placeholder="name@example.com" type="email" value="" />
+                        </div>
+                    </label>
+                    <!-- Password Field -->
+                    <label class="flex flex-col gap-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-text-main dark:text-gray-200 text-sm font-medium">Password</span>
+                            <a class="text-primary text-sm font-medium hover:underline hover:text-cyan-400" href="#">Forgot password?</a>
+                        </div>
+                        <div class="relative">
+                            <input class="form-input w-full rounded-lg border border-[#dce5e5] dark:border-gray-700 bg-white dark:bg-surface-dark px-4 py-3 text-base text-text-main dark:text-white placeholder:text-text-muted focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all h-12" placeholder="Enter your password" type="password" value="" />
+                        </div>
+                    </label>
+                    <!-- Action Button -->
+                    <button class="mt-2 flex w-full items-center justify-center rounded-lg bg-primary h-12 px-6 text-sm font-bold text-[#111717] hover:bg-cyan-300 active:bg-cyan-500 transition-colors duration-200 shadow-sm" type="button">
+                        Sign In
+                    </button>
+                </form>
+                <!-- Divider -->
+                <div class="relative flex py-2 items-center">
+                    <div class="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+                    <span class="flex-shrink-0 mx-4 text-gray-400 text-xs uppercase font-medium tracking-wider">Or continue with</span>
+                    <div class="flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+                </div>
+                <!-- Social Login -->
+                <div class="grid grid-cols-2 gap-4">
+                    <button class="flex items-center justify-center gap-2 rounded-lg border border-[#dce5e5] dark:border-gray-700 bg-white dark:bg-surface-dark hover:bg-gray-50 dark:hover:bg-gray-800 h-11 px-4 transition-colors duration-200">
+                        <span class="material-symbols-outlined text-[20px] text-text-main dark:text-white">
+                            login
+                        </span>
+                        <span class="text-sm font-medium text-text-main dark:text-white">Google</span>
+                    </button>
+                    <button class="flex items-center justify-center gap-2 rounded-lg border border-[#dce5e5] dark:border-gray-700 bg-white dark:bg-surface-dark hover:bg-gray-50 dark:hover:bg-gray-800 h-11 px-4 transition-colors duration-200">
+                        <span class="material-symbols-outlined text-[20px] text-text-main dark:text-white">
+                            face
+                        </span>
+                        <span class="text-sm font-medium text-text-main dark:text-white">Apple</span>
+                    </button>
+                </div>
+                <!-- Footer -->
+                <div class="text-center mt-4">
+                    <p class="text-text-muted dark:text-gray-400 text-sm">
+                        Don't have an account?
+                        <a class="text-primary font-semibold hover:underline hover:text-cyan-400 ml-1" href="#">Sign up</a>
+                    </p>
+                </div>
+            </div>
+            <!-- Bottom Links -->
+            <div class="absolute bottom-6 w-full text-center">
+                <div class="flex justify-center gap-6 text-xs text-text-muted dark:text-gray-500">
+                    <a class="hover:text-text-main dark:hover:text-gray-300" href="#">Privacy Policy</a>
+                    <a class="hover:text-text-main dark:hover:text-gray-300" href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
